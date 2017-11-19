@@ -1,0 +1,184 @@
+<?php
+/* @var $this Layout */
+
+$this->_response->addHeader('Content-type', 'text/html; charset=utf8');
+
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Тестовый сайт</title>
+
+    <style type="text/css">
+        html, body {
+            padding: 0px;
+            margin: 0px;
+            width: 100%;
+            height: 100%;
+            font-family: Verdana, Tahoma, Arial;
+            font-size: 14px;
+            color: #333;
+            background: url('/img/body-bg.png') repeat #F0F0F0;
+        }
+
+        #header {
+            width: 100%;
+            height: 70px;
+            text-align: left;
+        }
+
+        .logo {
+            font-size: 24px;
+            padding-top: 20px;
+            padding-left: 30px;
+        }
+
+        #global-menu {
+            overflow: hidden;
+            width: 100%;
+            height: 27px;
+            border-top: 1px solid #DDD;
+            border-bottom: 1px solid #EEE;
+            text-align: left;
+            position: relative;
+
+            background: #1e5799;
+            background: -moz-linear-gradient(left, #1e5799 0%, #2989d8 34%, #2989d8 66%, #1e5799 99%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%, #1e5799), color-stop(34%, #2989d8), color-stop(66%, #2989d8), color-stop(99%, #1e5799));
+            background: -webkit-linear-gradient(left, #1e5799 0%, #2989d8 34%, #2989d8 66%, #1e5799 99%);
+            background: -o-linear-gradient(left, #1e5799 0%, #2989d8 34%, #2989d8 66%, #1e5799 99%);
+            background: -ms-linear-gradient(left, #1e5799 0%, #2989d8 34%, #2989d8 66%, #1e5799 99%);
+            background: linear-gradient(to right, #1e5799 0%, #2989d8 34%, #2989d8 66%, #1e5799 99%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#1e5799', GradientType=1);
+        }
+
+        #global-menu ul {
+            position: relative;
+            top: 4px;
+            z-index: 2;
+            margin-bottom: -27px;
+        }
+
+        #global-menu li {
+            display: inline;
+            margin: 0px 20px;
+            font-weight: bold;
+        }
+
+        #global-menu li a {
+            text-decoration: none;
+            color: #FFF;
+            text-transform: uppercase;
+            text-shadow: 0px 1px rgba(90, 90, 90, 0.4);
+        }
+
+        #local-menu {
+            width: 260px;
+            float: left;
+            background: #FFF;
+            margin: 20px -280px 10px 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        #local-menu a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #local-menu a:hover {
+            text-decoration: underline;
+        }
+
+        #content {
+            background: #FFF;
+            min-height: 300px;
+            margin: 20px 10px 10px 310px;
+            padding: 10px 15px 20px 15px;
+            overflow: auto;
+        }
+
+        h1, h2, h3 {
+            font-size: 22px;
+            margin: 0px 0px 15px 0px;
+            font-weight: normal;
+        }
+
+        h2 {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        h3 {
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        a {
+            color: #2D98CE;
+        }
+
+        ul {
+            margin: 0px;
+            padding: 0px 0px 0px 10px;
+            list-style-image: none;
+            list-style-type: none;
+        }
+
+        #footer {
+            clear: both;
+            height: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            margin: 20px;
+        }
+
+        table {
+            border-spacing: 1px;
+            border-collapse: collapse;
+            border: 1px solid #AAA
+        }
+
+        table td {
+            padding: 4px 6px;
+        }
+
+        .shadow-frame {
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            border: 3px solid #FAFAFA;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div id="header">
+    <div class="logo">Тестовый сайт</div>
+</div>
+
+<div id="global-menu">
+    <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/Examples/">Примеры</a></li>
+        <li><a href="/Test/">Тестовый контроллер</a></li>
+    </ul>
+</div>
+
+<div id="local-menu" class="shadow-frame">
+    <?php echo $this->LocalMenu; ?>
+</div>
+
+<div id="content" class="shadow-frame">
+    <?php echo $this->getContent(); ?>
+</div>
+
+<div id="footer">
+    Тестовый сайт
+</div>
+</body>
+</html>

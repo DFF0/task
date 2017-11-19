@@ -1,0 +1,10 @@
+<?php
+/* @var $this View */
+?>
+<?php if ($this->example): ?>
+    <h1><?php echo $this->example['name']; ?></h1>
+    <?php echo $this->example['html']; ?>
+<?php else: ?>
+    <h1>Примеры использования некоторых компонентов</h1>
+    <?php echo $this->_layout->LocalMenu; ?>
+<?php endif; ?>

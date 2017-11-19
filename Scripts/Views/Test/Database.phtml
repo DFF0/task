@@ -1,0 +1,34 @@
+<h1>Пример выборки из базы данных</h1>
+
+<h2>Доступные базы данных</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>База</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->databases as $row): ?>
+        <tr>
+            <td><?php echo $row[0]; ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<h2>Доступные таблицы</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Таблица</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->tables as $row): ?>
+        <tr>
+            <td><?php echo $row[0]; ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

@@ -1,0 +1,74 @@
+<?php
+?>
+<h1>Редактирование сотрудника</h1>
+
+<form action="/Employee/Edit/?id=<?=$_GET['id'];?>" method="post" class="">
+    <div class="row">
+        <div class="col-lg-4">
+            <label>
+                Фамилия<br>
+                <input type="text" value="<?=$this->data['second_name'];?>" name="data[second_name]" required>
+            </label>
+        </div>
+        <div class="col-lg-4">
+            <label>
+                Должность<br>
+                <input type="text" value="<?=$this->data['position'];?>" name="data[position]" required>
+            </label>
+        </div>
+        <div class="col-lg-4">
+            <label>
+                Почта<br>
+                <input type="email" value="<?=$this->data['email'];?>" name="data[email]" required>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <label>
+                Имя<br>
+                <input type="text" value="<?=$this->data['first_name'];?>" name="data[first_name]" required>
+            </label>
+        </div>
+        <div class="col-lg-4">
+            <label>
+                Пол<br>
+                <select name="data[sex]">
+                    <option value="Не указан" <?=($this->data['sex'] == 'Не указан')? 'selected' : ''; ?>>Не указан</option>
+                    <option value="Мужской" <?=($this->data['sex'] == 'Мужской')? 'selected' : ''; ?>>Мужской</option>
+                    <option value="Женский" <?=($this->data['sex'] == 'Женский')? 'selected' : ''; ?>>Женский</option>
+                </select>
+            </label>
+        </div>
+        <div class="col-lg-4">
+            <label>
+                Телефон<br>
+                <input type="text" value="<?=$this->data['phone'];?>" name="data[phone]" class="mask-phone" required>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <label>
+                Отчество<br>
+                <input type="text" value="<?=$this->data['middle_name'];?>" name="data[middle_name]" required>
+            </label>
+        </div>
+        <div class="col-lg-4">
+            <label>
+                Дата рождения<br>
+                <input type="date" value="<?=$this->data['dob'];?>" name="data[dob]" required>
+            </label>
+        </div>
+        <div class="col-lg-4">
+            <label>
+                Пасспорт<br>
+                <input type="text" value="<?=$this->data['passport'];?>" name="data[passport]" class="mask-passport" required>
+            </label>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-4"><button type="submit" class="button">Сохранить</button></div>
+    </div>
+</form>

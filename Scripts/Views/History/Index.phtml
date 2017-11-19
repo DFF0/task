@@ -1,0 +1,112 @@
+<?php
+setlocale(LC_ALL, 'ru_RU.UTF-8');
+?>
+<h1>История</h1>
+
+<? foreach ( $this->histories as $data ) { ?>
+    <?
+    $info = json_decode($data['changes'], true);
+
+    $strDate = strftime('%d %B %Y %H:%M', strtotime($data['datetime']));
+    ?>
+    <div class="row">
+
+        <? if ( $data['action'] === 'insert' ) { ?>
+            <strong><?=$strDate;?></strong>:
+            Добавлен новый сотрудник #<?=$data['eid'];?>
+            «<?=$info['second_name']?> <?=$info['first_name']?> <?=$info['middle_name']?>»:
+            <br>
+            <ul>
+                <? foreach ( $info as $key => $value ) { ?>
+                    <?
+                    $name = '';
+                    switch($key)
+                    {
+                        case 'first_name':
+                            $name = 'Имя';
+                            break;
+                        case 'middle_name':
+                            $name = 'Отчество';
+                            break;
+                        case 'second_name':
+                            $name = 'Фамилия';
+                            break;
+                        case 'position':
+                            $name = 'Должность';
+                            break;
+                        case 'sex':
+                            $name = 'Пол';
+                            break;
+                        case 'dob':
+                            $name = 'Дата рождения';
+                            break;
+                        case 'passport':
+                            $name = 'Пасспорт';
+                            break;
+                        case 'phone':
+                            $name = 'Телефон';
+                            break;
+                        case 'email':
+                            $name = 'Почта';
+                            break;
+                    }
+                    ?>
+                    <li><?=$name;?>: <strong><?=$value;?></strong></li>
+                <? } ?>
+            </ul>
+        <? } elseif ( $data['action'] === 'update' ) { ?>
+            <strong><?=$strDate;?></strong>:
+            Изменения по сотруднику #<?=$data['eid'];?>
+            «»:
+            <br>
+            <ul>
+                <? foreach ( $info as $key => $value ) { ?>
+                    <?
+                    $name = '';
+                    switch($key)
+                    {
+                        case 'first_name':
+                            $name = 'Имя';
+                            break;
+                        case 'middle_name':
+                            $name = 'Отчество';
+                            break;
+                        case 'second_name':
+                            $name = 'Фамилия';
+                            break;
+                        case 'position':
+                            $name = 'Должность';
+                            break;
+                        case 'sex':
+                            $name = 'Пол';
+                            break;
+                        case 'dob':
+                            $name = 'Дата рождения';
+                            break;
+                        case 'passport':
+                            $name = 'Пасспорт';
+                            break;
+                        case 'phone':
+                            $name = 'Телефон';
+                            break;
+                        case 'email':
+                            $name = 'Почта';
+                            break;
+                    }
+                    ?>
+                    <li>
+                        Изменено поле «<?=$name;?>».
+                        Старое значение «<strong><?=$value[0];?></strong>».
+                        Новое значение «<strong><?=$value[1];?></strong>»
+                    </li>
+                <? } ?>
+            </ul>
+        <? } elseif ( $data['action'] === 'delete' ) { ?>
+            <strong><?=$strDate;?></strong>:
+            Сотрудник #<?=$data['eid'];?>
+            «<?=$info['second_name']?> <?=$info['first_name']?> <?=$info['middle_name']?>»
+            был удалён
+        <? } ?>
+    </div>
+    <hr>
+<? } ?>

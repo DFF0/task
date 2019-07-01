@@ -28,6 +28,12 @@ class ActionController
 
     /**
      *
+     * @var ManageEmployee
+     */
+    protected $_me = null;
+
+    /**
+     *
      * @var PDO
      */
     protected $_db = null;
@@ -59,6 +65,7 @@ class ActionController
 
         $this->_initLayout();
         $this->_initView();
+        $this->_initManageEmployee();
 
         $this->_init();
 
@@ -103,5 +110,15 @@ class ActionController
         }
 
         $this->_layout;
+    }
+
+    protected function _initManageEmployee()
+    {
+        if (!isset($this->_me)) {
+            $this->_me = new ManageEmployee();
+            $this->_me->registryPDO();
+        }
+
+        $this->_me;
     }
 }

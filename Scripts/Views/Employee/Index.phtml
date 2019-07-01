@@ -1,0 +1,35 @@
+<?php
+?>
+<h1>Сотрудники</h1>
+
+<?php foreach ($this->employees as $employee) { ?>
+    <div class="employee-list">
+        <div class="row">
+            <div class="col-lg-2"><strong>ФИО</strong></div>
+            <div class="col-lg-2"><strong>Пол</strong></div>
+            <div class="col-lg-2"><strong>Дата рождения</strong></div>
+            <div class="col-lg-4"><strong>Должность</strong></div>
+            <div class="col-lg-2"><strong>Управление</strong></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"><?=$employee['second_name'];?> <?=$employee['first_name'];?> <?=$employee['middle_name'];?></div>
+            <div class="col-lg-2"><?=$employee['sex'];?></div>
+            <div class="col-lg-2"><?=$employee['dob'];?></div>
+            <div class="col-lg-4"><?=$employee['position'];?></div>
+            <div class="col-lg-2"><a href="/Employee/Edit/?id=<?=$employee['id'];?>">Редактировать</a></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"><strong>Паспорт</strong></div>
+            <div class="col-lg-2"><strong>Почта</strong></div>
+            <div class="col-lg-6"><strong>Телефон</strong></div>
+            <div class="col-lg-2"><a href="/History/?id=<?=$employee['id'];?>">История</a></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"><?=$employee['passport'];?></div>
+            <div class="col-lg-2"><?=$employee['email'];?></div>
+            <div class="col-lg-6"><?=$employee['phone'];?></div>
+            <div class="col-lg-2"><a style="color:red;" href="/Employee/Delete/?id=<?=$employee['id'];?>">Удалить</a></div>
+        </div>
+    </div>
+    <hr>
+<?php } ?>
